@@ -44,8 +44,14 @@ impl QAEmbedding {
         let markdown_loader = MarkdownLoader::create(local_disk.clone());
         let directory_loader =
             llmchain::DirectoryLoader::create(local_disk).with_loader("**/*.md", markdown_loader);
+        let curdir = std::env::current_dir()?.to_str().unwrap().to_string();
+
+        println!("Step-0: load all files from:{0}, {1}", conf.qa.path, curdir);
+        // let testdata_dir = format!("{}/tests/testdata/loaders", curdir);
+        // let testdata_dir = "llmchain/tests/testdata/loaders";
+        // let directory_dir = format!("{}/directory/", testdata_dir);
         let documents = directory_loader
-            .load(DocumentPath::Str(conf.qa.path.clone()))
+            .load(DocumentPath::Str(format!("{0}/{1}", curdir, conf.qa.path)))
             .await?;
         info!("Step-1: parser all files:{}", documents.len());
 

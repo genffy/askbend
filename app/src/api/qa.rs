@@ -31,7 +31,7 @@ struct Response {
     result: String,
 }
 
-/// curl -X POST -H "Content-Type: application/json" -d '{"query": "whats the fast way to load data to databend"}' http://localhost:8081/query
+/// curl -X POST -H "Content-Type: application/json" -d '{"query": "whats the fast way to load data to databend"}' http://localhost:8081/qa/query
 pub async fn qa_query_handler(
     query: web::Json<QAQuery>,
     conf: web::Data<Config>,

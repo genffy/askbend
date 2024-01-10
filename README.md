@@ -33,7 +33,7 @@ path = "data/"
 database = "askbend"
 table = "doc"
 # Data source name (DSN) for connecting to your Databend cloud warehouse
-# https://docs.databend.com/using-databend-cloud/warehouses/connecting-a-warehouse
+# https://docs.databend.com/guides/cloud/using-databend-cloud/warehouses/#connecting
 dsn = "databend://<sql-user>:<sql-password>@<your-databend-cloud-warehouse>/default"
 top = 3
 
@@ -140,7 +140,7 @@ port = 8081
 github_token = "your-github-token"
 llm_max_tokens = 100000
 # Data source name (DSN) for connecting to your Databend cloud warehouse
-# https://docs.databend.com/using-databend-cloud/warehouses/connecting-a-warehouse
+# https://docs.databend.com/guides/cloud/using-databend-cloud/warehouses/#connecting
 dsn = "databend://<sql-user>:<sql-password>@<your-databend-cloud-warehouse>/default"
 repos = ["your-github-repo"]
 
