@@ -20,3 +20,12 @@ setup:
 
 clean:
 	cargo clean
+
+dev-build:
+	cargo clean && cargo build && cargo run --package askbend --bin askbend -- -c conf/askbend.toml --rebuild
+
+dev-api:
+	cargo run --package askbend --bin askbend -- -c conf/askbend.toml
+
+dev-web:
+	cd web && npm run dev

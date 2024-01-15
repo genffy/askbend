@@ -54,7 +54,7 @@ impl QAEmbedding {
             .load(DocumentPath::Str(format!("{0}/{1}", curdir, conf.qa.path)))
             .await?;
         info!("Step-1: parser all files:{}", documents.len());
-
+        // TODO add more splitters.
         let documents = MarkdownSplitter::create().split_documents(&documents)?;
         info!("Step-2: split all files to:{}", documents.len());
 
@@ -69,7 +69,7 @@ impl QAEmbedding {
             .with_database(&conf.qa.database)
             .with_table(&conf.qa.table);
         databend_vector_store.init().await?;
-
+        // why documents is not split? casue This model's maximum context length is 8191 tokens error
         let _ = databend_vector_store.add_documents(&documents).await?;
         info!(
             "Step-3: finish embedding to table:{}.{}, cost {}",
